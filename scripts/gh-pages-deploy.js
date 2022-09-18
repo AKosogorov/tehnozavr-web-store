@@ -1,8 +1,9 @@
-const execa = require("execa");
 const fs = require("fs");
 
 (async () => {
   try {
+    const { execa } = await import("execa")
+
     await execa("git", ["checkout", "--orphan", "gh-pages"]);
     console.log("Building...");
     await execa("npm", ["run", "build"]);
